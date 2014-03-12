@@ -3,7 +3,7 @@
 WWW::Google::AutoSuggest - Query the Google services to retrieve the query suggestions
 
 # SYNOPSIS
-
+```perl
     use WWW::Google::AutoSuggest;
     my $AutoSuggest=WWW::Google::AutoSuggest->new();
     my @Suggestions = $AutoSuggest->search("perl");
@@ -16,7 +16,7 @@ WWW::Google::AutoSuggest - Query the Google services to retrieve the query sugge
     use WWW::Google::AutoSuggest;
     my $AutoSuggest=WWW::Google::AutoSuggest->new(strip_html=>0);
     my @Suggestions = $AutoSuggest->search("perl");
-
+```
 # DESCRIPTION
 
 WWW::Google::AutoSuggest allows you to use Google Suggest in a quick and easy way and returning it as JSON for further inspection
