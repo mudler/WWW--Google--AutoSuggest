@@ -26,7 +26,8 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "Module::Build::Tiny" : "0.034"
+            "Module::Build::Tiny" : "0.034",
+            "perl" : "5.008005"
          }
       },
       "develop" : {
@@ -36,16 +37,32 @@
       },
       "runtime" : {
          "requires" : {
-            "perl" : "5.008005"
+            "Encode" : "0",
+            "JSON" : "0",
+            "LWP::UserAgent" : "0",
+            "Moo" : "0",
+            "URI" : "0",
+            "perl" : "5.008_005"
          }
       },
       "test" : {
          "requires" : {
-            "Test::More" : "0.88"
+            "Test::More" : "0"
          }
       }
    },
    "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/mudler/WWW--Google--AutoSuggest/issues"
+      },
+      "homepage" : "https://github.com/mudler/WWW--Google--AutoSuggest",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/mudler/WWW--Google--AutoSuggest.git",
+         "web" : "https://github.com/mudler/WWW--Google--AutoSuggest"
+      }
+   },
    "version" : "0.01"
 }
 

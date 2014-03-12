@@ -4,20 +4,18 @@ WWW::Google::AutoSuggest - Query the Google services to retrieve the query sugge
 
 # SYNOPSIS
 
-```perl
-use WWW::Google::AutoSuggest;
-my $AutoSuggest=WWW::Google::AutoSuggest->new();
-my @Suggestions = $AutoSuggest->search("perl");
-###### or
-use WWW::Google::AutoSuggest;
-my $AutoSuggest=WWW::Google::AutoSuggest->new(domain=> "it" ,json=>1); #uses www.google.it instead of .com
-my $result = $AutoSuggest->search("perl");
-# $result now is a JSON object
-###### or with the html tags
-use WWW::Google::AutoSuggest;
-my $AutoSuggest=WWW::Google::AutoSuggest->new(strip_html=>0);
-my @Suggestions = $AutoSuggest->search("perl");
-```
+    use WWW::Google::AutoSuggest;
+    my $AutoSuggest=WWW::Google::AutoSuggest->new();
+    my @Suggestions = $AutoSuggest->search("perl");
+    ###### or
+    use WWW::Google::AutoSuggest;
+    my $AutoSuggest=WWW::Google::AutoSuggest->new(domain=> "it" ,json=>1); #uses www.google.it instead of .com
+    my $result = $AutoSuggest->search("perl");
+    # $result now is a JSON object
+    ###### or with the html tags
+    use WWW::Google::AutoSuggest;
+    my $AutoSuggest=WWW::Google::AutoSuggest->new(strip_html=>0);
+    my @Suggestions = $AutoSuggest->search("perl");
 
 # DESCRIPTION
 
@@ -25,71 +23,67 @@ WWW::Google::AutoSuggest allows you to use Google Suggest in a quick and easy wa
 
 # ARGUMENTS
 
-## json
+- json
 
-	my $AutoSuggest=WWW::Google::AutoSuggest->new(json=>1);
+            my $AutoSuggest=WWW::Google::AutoSuggest->new(json=>1);
 
-or
+    or
 
-	$AutoSuggest->json(1);
+            $AutoSuggest->json(1);
 
-Explicitally enable the return of the [JSON](https://metacpan.org/pod/JSON) object when calling ```search("term")```
+    Explicitally enable the return of the [JSON](https://metacpan.org/pod/JSON) object when calling `search("term")`  
 
-## strip_html
+- strip\_html
 
-	my $AutoSuggest=WWW::Google::AutoSuggest->new(strip_html=>0);
+            my $AutoSuggest=WWW::Google::AutoSuggest->new(strip_html=>0);
 
-or
+    or
 
-	$AutoSuggest->strip_html(0);
+            $AutoSuggest->strip_html(0);
 
-Explicitally disable the stripping of the HTML contained in the google responses
+    Explicitally disable the stripping of the HTML contained in the google responses
 
-## raw
+- raw
 
+            my $AutoSuggest=WWW::Google::AutoSuggest->new(raw=>1);
 
-	my $AutoSuggest=WWW::Google::AutoSuggest->new(raw=>1);
+    or
 
-or
+            $AutoSuggest->raw(1);
 
-	$AutoSuggest->raw(1);
+    Explicitally enable the return of the response content when calling `search("term")` 
 
-Explicitally enable the return of the response content when calling ```search("term")```
+- domain
 
-## domain
+            my $AutoSuggest=WWW::Google::AutoSuggest->new(domain=>"it");
 
-	my $AutoSuggest=WWW::Google::AutoSuggest->new(domain=>"it");
+    or
 
-or
+            $AutoSuggest->domain("it");
 
-	$AutoSuggest->domain("it");
-
-Explicitally use the Google domain name in the request
-
+    Explicitally use the Google domain name in the request
 
 # METHODS
 
-## new
+- new
 
-	my $AutoSuggest=WWW::Google::AutoSuggest->new();	
+            my $AutoSuggest=WWW::Google::AutoSuggest->new();        
 
-Creates a new WWW::Google::AutoSuggest object
+    Creates a new WWW::Google::AutoSuggest object
 
-## search
+- search
 
-	my @Suggestions = $AutoSuggest->search($query);
+            my @Suggestions = $AutoSuggest->search($query);
 
-Sends your ```$query``` to Google web server and fetches and parse suggestions for the given query.
-Default returns an array of that form
+    Sends your `$query` to Google web server and fetches and parse suggestions for the given query.
+    Default returns an array of that form
 
-	@Suggestions = ( 'foo bar' , 'baar foo',..);
+            @Suggestions = ( 'foo bar' , 'baar foo',..);
 
-Setting 
-	```
-	$AutoSuggest->json(1);
-	```
+    Setting 
+    	$AutoSuggest->json(1);
 
-will return the [JSON](https://metacpan.org/pod/JSON) object
+    will return the [JSON](https://metacpan.org/pod/JSON) object
 
 # AUTHOR
 
@@ -106,4 +100,4 @@ it under the same terms as Perl itself.
 
 # SEE ALSO
 
-[WebService::Google::Suggest](https://metacpan.org/pod/WebService::Google::Suggest)
+[https://metacpan.org/pod/WebService::Google::Suggest](https://metacpan.org/pod/WebService::Google::Suggest)
