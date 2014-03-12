@@ -4,18 +4,20 @@ WWW::Google::AutoSuggest - Query the Google services to retrieve the query sugge
 
 # SYNOPSIS
 
-  use WWW::Google::AutoSuggest;
-  my $AutoSuggest=WWW::Google::AutoSuggest->new();
-  my @Suggestions = $AutoSuggest->search("perl");
-  ###### or
-  use WWW::Google::AutoSuggest;
-  my $AutoSuggest=WWW::Google::AutoSuggest->new(domain=> "it" ,json=>1); #uses www.google.it instead of .com
-  my $result = $AutoSuggest->search("perl");
-  # $result now is a JSON object
-  ###### or with the html tags
-  use WWW::Google::AutoSuggest;
-  my $AutoSuggest=WWW::Google::AutoSuggest->new(strip_html=>0);
-  my @Suggestions = $AutoSuggest->search("perl");
+```
+use WWW::Google::AutoSuggest;
+my $AutoSuggest=WWW::Google::AutoSuggest->new();
+my @Suggestions = $AutoSuggest->search("perl");
+###### or
+use WWW::Google::AutoSuggest;
+my $AutoSuggest=WWW::Google::AutoSuggest->new(domain=> "it" ,json=>1); #uses www.google.it instead of .com
+my $result = $AutoSuggest->search("perl");
+# $result now is a JSON object
+###### or with the html tags
+use WWW::Google::AutoSuggest;
+my $AutoSuggest=WWW::Google::AutoSuggest->new(strip_html=>0);
+my @Suggestions = $AutoSuggest->search("perl");
+```
 
 # DESCRIPTION
 
@@ -83,7 +85,9 @@ Default returns an array of that form
 	@Suggestions = ( 'foo bar' , 'baar foo',..);
 
 Setting 
+	```
 	$AutoSuggest->json(1);
+	```
 
 will return the [https://metacpan.org/pod/JSON](JSON) object
 
