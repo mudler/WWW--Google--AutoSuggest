@@ -4,7 +4,7 @@ WWW::Google::AutoSuggest - Query the Google services to retrieve the query sugge
 
 # SYNOPSIS
 
-```
+```perl
 use WWW::Google::AutoSuggest;
 my $AutoSuggest=WWW::Google::AutoSuggest->new();
 my @Suggestions = $AutoSuggest->search("perl");
