@@ -33,7 +33,7 @@ or
 
 	$AutoSuggest->json(1);
 
-Explicitally enable the return of the [https://metacpan.org/pod/JSON](JSON) object when calling ```search("term")```
+Explicitally enable the return of the [JSON](https://metacpan.org/pod/JSON) object when calling ```search("term")```
 
 ## strip_html
 
@@ -89,7 +89,7 @@ Setting
 	$AutoSuggest->json(1);
 	```
 
-will return the [https://metacpan.org/pod/JSON](JSON) object
+will return the [JSON](https://metacpan.org/pod/JSON) object
 
 # AUTHOR
 
@@ -106,4 +106,4 @@ it under the same terms as Perl itself.
 
 # SEE ALSO
 
-[https://metacpan.org/pod/WebService::Google::Suggest](WebService::Google::Suggest)
+[WebService::Google::Suggest](https://metacpan.org/pod/WebService::Google::Suggest)
