@@ -44,7 +44,7 @@ or
 
   $AutoSuggest->json(1);
 
-Explicitally enable the return the decoded L<JSON> object when calling C<search("term")>
+Explicitally enable the return of the decoded L<JSON> object when calling C<search("term")>
 
 =item strip_html
 
