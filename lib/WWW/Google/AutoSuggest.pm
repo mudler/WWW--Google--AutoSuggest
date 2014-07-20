@@ -8,7 +8,7 @@ use URI;
 use JSON;
 use Encode;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =encoding utf-8
 
@@ -41,42 +41,42 @@ WWW::Google::AutoSuggest allows you to use Google Suggest in a quick and easy wa
 
 =item json
 
-	my $AutoSuggest=WWW::Google::AutoSuggest->new(json=>1);
+  my $AutoSuggest=WWW::Google::AutoSuggest->new(json=>1);
 
 or
 
-	$AutoSuggest->json(1);
+  $AutoSuggest->json(1);
 
-Explicitally enable the return of the L<JSON> object when calling C<search("term")>  
+Explicitally enable the return of the L<JSON> object when calling C<search("term")>
 
 =item strip_html
 
-	my $AutoSuggest=WWW::Google::AutoSuggest->new(strip_html=>0);
+  my $AutoSuggest=WWW::Google::AutoSuggest->new(strip_html=>0);
 
 or
 
-	$AutoSuggest->strip_html(0);
+  $AutoSuggest->strip_html(0);
 
 Explicitally disable the stripping of the HTML contained in the google responses
 
 =item raw
 
 
-	my $AutoSuggest=WWW::Google::AutoSuggest->new(raw=>1);
+  my $AutoSuggest=WWW::Google::AutoSuggest->new(raw=>1);
 
 or
 
-	$AutoSuggest->raw(1);
+  $AutoSuggest->raw(1);
 
-Explicitally enable the return of the response content when calling C<search("term")> 
+Explicitally enable the return of the response content when calling C<search("term")>
 
 =item domain
 
-	my $AutoSuggest=WWW::Google::AutoSuggest->new(domain=>"it");
+  my $AutoSuggest=WWW::Google::AutoSuggest->new(domain=>"it");
 
 or
 
-	$AutoSuggest->domain("it");
+  $AutoSuggest->domain("it");
 
 Explicitally use the Google domain name in the request
 
@@ -90,21 +90,21 @@ Explicitally use the Google domain name in the request
 
 =item new
 
-	my $AutoSuggest=WWW::Google::AutoSuggest->new();	
+  my $AutoSuggest=WWW::Google::AutoSuggest->new();
 
 Creates a new WWW::Google::AutoSuggest object
 
 =item search
 
-	my @Suggestions = $AutoSuggest->search($query);
+  my @Suggestions = $AutoSuggest->search($query);
 
 Sends your C<$query> to Google web server and fetches and parse suggestions for the given query.
 Default returns an array of that form
 
-	@Suggestions = ( 'foo bar' , 'baar foo',..);
+  @Suggestions = ( 'foo bar' , 'baar foo',..);
 
-Setting 
-	$AutoSuggest->json(1);
+Setting
+  $AutoSuggest->json(1);
 
 will return the L<JSON> object
 
@@ -130,17 +130,17 @@ L<https://metacpan.org/pod/WebService::Google::Suggest>
 
 =cut
 
-has 'domain'     => ( is => "rw", default => "com" );
-has 'UA'         => ( is => "rw", default => "Mozilla/5.0" );    #eheh
-has 'url'        => ( is => "rw" );
-has 'base_url'   => ( is => "rw", default => "/s" );
+has 'domain'   => ( is => "rw", default => sub {"com"} );
+has 'UA'       => ( is => "rw", default => sub {"Mozilla/5.0"} );    #eheh
+has 'url'      => ( is => "rw" );
+has 'base_url' => ( is => "rw", default => sub {"/s"} );
 has 'strip_html' => ( is => "rw", default => 1 )
     ;    #typically you want enable that
 has 'raw'  => ( is => "rw", default => 0 );
 has 'json' => ( is => "rw", default => 0 );
 
 sub BUILD {
-	my $self=shift;
+    my $self = shift;
     $self->url( "https://www.google." . $self->domain . $self->base_url );
 }
 
@@ -160,14 +160,14 @@ sub search {
         my $Response = decode_json( $res->content );
         return $Response if ( $self->json == 1 );
         return map {
-            $_ = $self->strip_html == 1
-                ? encode( 'utf8', $_->[0] )
-                =~ s/<[^>]*>//rgs ##Strips basic HTML tags, i don't think it's needed to load another module
-                : encode( 'utf8', $_->[0] )
+            $_ = encode( 'utf8', $_->[0] );
+            s|<.+?>||g if $self->strip_html == 1;
+            $_;
+            ##Strips basic HTML tags, i don't think it's needed to load another module
         } @{ $Response->[1] };
     }
     else {
-        die($res->status_line);
+        die( $res->status_line );
     }
 }
 
