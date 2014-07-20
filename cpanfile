@@ -1,7 +1,6 @@
 requires 'Encode';
 requires 'JSON';
 requires 'LWP::UserAgent';
-requires 'Moo';
 requires 'URI';
 requires 'perl', '5.008_005';
 

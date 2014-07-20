@@ -1,8 +1,5 @@
 package WWW::Google::AutoSuggest;
-use strict;
-use 5.008_005;
-use warnings;
-use Moo;
+use WWW::Google::AutoSuggest::Obj -base;
 use LWP::UserAgent;
 use URI;
 use JSON;
@@ -130,19 +127,13 @@ L<https://metacpan.org/pod/WebService::Google::Suggest>
 
 =cut
 
-has 'domain'   => ( is => "rw", default => sub {"com"} );
-has 'UA'       => ( is => "rw", default => sub {"Mozilla/5.0"} );    #eheh
-has 'url'      => ( is => "rw" );
-has 'base_url' => ( is => "rw", default => sub {"/s"} );
-has 'strip_html' => ( is => "rw", default => 1 )
-    ;    #typically you want enable that
-has 'raw'  => ( is => "rw", default => 0 );
-has 'json' => ( is => "rw", default => 0 );
-
-sub BUILD {
-    my $self = shift;
-    $self->url( "https://www.google." . $self->domain . $self->base_url );
-}
+has 'domain'     => sub {"com"};
+has 'UA'         => sub {"Mozilla/5.0"};    #eheh
+has 'base_url'   => sub {"/s"};
+has 'strip_html' => sub {1};                #typically you want enable that
+has 'raw'        => sub {0};
+has 'json'       => sub {0};
+has 'url'        => sub {"https://www.google." . $_[0]->domain . $_[0]->base_url};
 
 sub search {
     my $self = shift;
