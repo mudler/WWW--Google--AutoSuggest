@@ -22,7 +22,7 @@ WWW::Google::AutoSuggest - Query the Google services to retrieve the query sugge
   use WWW::Google::AutoSuggest;
   my $AutoSuggest=WWW::Google::AutoSuggest->new(domain=> "it" ,json=>1); #uses www.google.it instead of .com
   my $result = $AutoSuggest->search("perl");
-  # $result now is a JSON object
+  # $result now is a decoded JSON arrayref
   ###### or with the html tags
   use WWW::Google::AutoSuggest;
   my $AutoSuggest=WWW::Google::AutoSuggest->new(strip_html=>0);
@@ -30,7 +30,7 @@ WWW::Google::AutoSuggest - Query the Google services to retrieve the query sugge
 
 =head1 DESCRIPTION
 
-WWW::Google::AutoSuggest allows you to use Google Suggest in a quick and easy way and returning it as JSON for further inspection
+WWW::Google::AutoSuggest allows you to use Google Suggest in a quick and easy way and returning it as decoded JSON for further inspection
 
 =head1 ARGUMENTS
 
@@ -44,7 +44,7 @@ or
 
   $AutoSuggest->json(1);
 
-Explicitally enable the return of the L<JSON> object when calling C<search("term")>
+Explicitally enable the return the decoded L<JSON> object when calling C<search("term")>
 
 =item strip_html
 
