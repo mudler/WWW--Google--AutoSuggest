@@ -26,7 +26,7 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "Module::Build::Tiny" : "0.034",
+            "Module::Build::Tiny" : "0.035",
             "perl" : "5.008005"
          }
       },
@@ -40,7 +40,6 @@
             "Encode" : "0",
             "JSON" : "0",
             "LWP::UserAgent" : "0",
-            "Moo" : "0",
             "URI" : "0",
             "perl" : "5.008_005"
          }
@@ -63,6 +62,6 @@
          "web" : "https://github.com/mudler/WWW--Google--AutoSuggest"
       }
    },
-   "version" : "0.01"
+   "version" : "0.02"
 }
 

@@ -2,6 +2,8 @@ Revision history for WWW-Google-AutoSuggest
 
 {{$NEXT}}
 
+0.02  2014-07-20 12:52:15 CEST
+
         - +3 Tests
         - some fixes to gain backward compatibility for 5.8+ and 5.10+
         - removed Moo dep
