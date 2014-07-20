@@ -31,7 +31,7 @@ WWW::Google::AutoSuggest allows you to use Google Suggest in a quick and easy wa
 
         $AutoSuggest->json(1);
 
-    Explicitally enable the return the decoded [JSON](https://metacpan.org/pod/JSON) object when calling `search("term")`
+    Explicitally enable the return of the decoded [JSON](https://metacpan.org/pod/JSON) object when calling `search("term")`
 
 - strip\_html
 
