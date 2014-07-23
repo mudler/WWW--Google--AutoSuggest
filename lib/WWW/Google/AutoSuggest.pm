@@ -5,7 +5,7 @@ use URI;
 use JSON;
 use Encode;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =encoding utf-8
 
