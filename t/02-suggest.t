@@ -1,6 +1,11 @@
 use strict;
 use Test::More;
 use WWW::Google::AutoSuggest;
+if ( !$ENV{TEST_SUGGEST} ) {
+    plan skip_all =>
+        "Set the environment variable TEST_SUGGEST to enable this test.";
+}
+
 
 is( ( WWW::Google::AutoSuggest->new->search("perl") )[0],
     "perl", "First suggestion for perl is 'perl'" );
